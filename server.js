@@ -1,20 +1,29 @@
 const express = require("express");
-const { graphqlHTTP } = require("express-graphql");
+const { ApolloServer } = require("apollo-server-express");
 const cors = require("cors");
-const schema = require("./schema");
-const app = express();
+const mongoose = require("mongoose");
 
-//Allow Cross-origin
+const PORT = 8080;
+const API_URL = `http://localhost:${PORT}/graphql`;
+
+const app = express();
 app.use(cors());
 
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-  })
-);
+// apollo server
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context,
+});
 
-const PORT = process.env.PORT || 5000;
+server.applyMiddleware({ app });
 
-app.listen(PORT, () => console.log(`server started on port ${PORT}`));
+app.listen({ port: PORT }, () => {
+  console.log(`Server is up and running on ${API_URL}`);
+});
+
+/*
+{
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4uZG9lIiwiaWF0IjoxNTM3NDk5NzUwLCJleHAiOjE1Mzc1ODYxNTB9.5wisTsYJUES0RqdRfUy_0hHJwMmbnTe4jDd6m6va3Vo"
+}
+*/
