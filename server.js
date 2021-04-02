@@ -1,6 +1,6 @@
 const express = require("express");
 const graphqlHTTP = require("express-graphql");
-
+const schema = require("./schema");
 const app = express();
 
 app.use(
@@ -11,4 +11,6 @@ app.use(
   })
 );
 
-app.listen(4000);
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => CONSOLE.LOG(`server started on port ${PORT}`));
