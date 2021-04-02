@@ -18,10 +18,10 @@ const Launches = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  return data.rates.map(({ currency, rate }) => (
-    <div key={currency}>
+  return data.launches.map(({ flight_number, mission_name }) => (
+    <div key={flight_number}>
       <p>
-        {currency}: {rate}
+        {flight_number}: {mission_name}
       </p>
     </div>
   ));
