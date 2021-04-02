@@ -22,8 +22,4 @@ app.listen({ port: PORT }, () => {
   console.log(`Server is up and running on ${API_URL}`);
 });
 
-/*
-{
-  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4uZG9lIiwiaWF0IjoxNTM3NDk5NzUwLCJleHAiOjE1Mzc1ODYxNTB9.5wisTsYJUES0RqdRfUy_0hHJwMmbnTe4jDd6m6va3Vo"
-}
-*/
+https://github.com/exponentian/apollo-express-server-tutorial/tree/master/src/schema
